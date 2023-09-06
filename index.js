@@ -35,8 +35,8 @@ app.use(express.json());
 // "https://vacay-app.onrender.com"
 app.use(
   cors({
-    credentials: true,
-    origin: ["http://localhost:5173"],
+    // credentials: true,
+    origin: ["http://localhost:5173", "https://vacay-app.onrender.com"],
   })
 );
 app.use(cookieParser());
