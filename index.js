@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-// const cors = require("cors");
+const cors = require("cors");
 const User = require("./models/User");
 const Place = require("./models/Place");
 const bcrypt = require("bcryptjs");
@@ -34,12 +34,12 @@ app.use(express.json());
 // app.use(fileUpload({ useTempFiles: true }));
 // "https://vacay-app.onrender.com"
 // app.use(cors());
-// app.use(
-//   cors({
-//     origin: ["http://localhost:5173", "https://vacay-app.onrender.com"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://vacay-app.onrender.com"],
+    credentials: true,
+  })
+);
 
 app.use(cookieParser());
 // app.use(express.static(path.resolve(__dirname, "./client/build")));

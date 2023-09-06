@@ -6,11 +6,7 @@ const IndexPage = () => {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
     axios
-      .get("/places", {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
+      .get("https://localhost:4000/places")
       .then((response) => setPlaces(response.data));
   }, []);
   return (

@@ -38,28 +38,22 @@ const PlacesFormPage = () => {
     if (!id) {
       return;
     }
-    axios
-      .get("/places/" + id, {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
-      .then((response) => {
-        const { data } = response;
-        setState({
-          ...state,
-          title: data.title,
-          address: data.address,
-          addedPhotos: data.photos,
-          description: data.description,
-          perks: data.perks,
-          extraInfo: data.extraInfo,
-          checkIn: data.checkIn,
-          checkOut: data.checkOut,
-          maxGuests: data.maxGuests,
-          price: data.price,
-        });
+    axios.get("https://localhost:4000/places/" + id).then((response) => {
+      const { data } = response;
+      setState({
+        ...state,
+        title: data.title,
+        address: data.address,
+        addedPhotos: data.photos,
+        description: data.description,
+        perks: data.perks,
+        extraInfo: data.extraInfo,
+        checkIn: data.checkIn,
+        checkOut: data.checkOut,
+        maxGuests: data.maxGuests,
+        price: data.price,
       });
+    });
   }, [id]);
 
   function preInput(header, description) {

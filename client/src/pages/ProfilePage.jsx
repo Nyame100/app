@@ -22,11 +22,7 @@ const ProfilePage = () => {
   }
 
   const logout = async () => {
-    await axios.post(
-      "/logout",
-      {},
-      { headers: { "Access-Control-Allow-Origin": "*" } }
-    );
+    await axios.post("https://localhost:4000/logout");
     setRedirect("/");
     setUser(null);
   };

@@ -8,15 +8,9 @@ import BookingDates from "../BookingDates";
 const BookingsPage = () => {
   const [bookings, setBookings] = useState([]);
   useEffect(() => {
-    axios
-      .get("/bookings", {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
-      .then((response) => {
-        setBookings(response.data);
-      });
+    axios.get("https://localhost:4000/bookings").then((response) => {
+      setBookings(response.data);
+    });
   }, []);
   //   console.log(bookings);
   return (
