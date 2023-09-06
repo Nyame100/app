@@ -38,7 +38,7 @@ const PlacesFormPage = () => {
     if (!id) {
       return;
     }
-    axios.get("https://localhost:4000/places/" + id).then((response) => {
+    axios.get("/places/" + id).then((response) => {
       const { data } = response;
       setState({
         ...state,

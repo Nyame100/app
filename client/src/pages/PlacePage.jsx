@@ -12,7 +12,7 @@ const PlacePage = () => {
     if (!id) {
       return;
     }
-    axios.get(`https://localhost:4000/places/${id}`, {}).then((response) => {
+    axios.get(`/places/${id}`, {}).then((response) => {
       setPlace(response.data);
     });
   }, [id]);

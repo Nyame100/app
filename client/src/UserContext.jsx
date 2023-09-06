@@ -8,7 +8,7 @@ export const UserContextProvider = ({ children }) => {
   const [ready, setReady] = useState(false);
   useEffect(() => {
     if (!user) {
-      axios.get("https://localhost:4000/profile").then(({ data }) => {
+      axios.get("/profile").then(({ data }) => {
         setUser(data);
         setReady(true);
       });

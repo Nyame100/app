@@ -22,7 +22,7 @@ const ProfilePage = () => {
   }
 
   const logout = async () => {
-    await axios.post("https://localhost:4000/logout");
+    await axios.post("/logout");
     setRedirect("/");
     setUser(null);
   };

@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 const IndexPage = () => {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://localhost:4000/places")
-      .then((response) => setPlaces(response.data));
+    axios.get("/places").then((response) => setPlaces(response.data));
   }, []);
   return (
     <div className="mt-8 gap-x-6 gap-y-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
