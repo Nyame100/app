@@ -39,9 +39,10 @@ app.use(express.static(path.resolve(__dirname, "./client/dist")));
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:5173", "https://mern-booking-app.onrender.com"],
+    origin: ["http://localhost:5173", "https://vacay-app.onrender.com"],
   })
 );
+// https://vacay-app.onrender.com/
 // app.get("*", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
 // });
