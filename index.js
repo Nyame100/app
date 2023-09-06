@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
-// const cors = require("cors");
-const helmet = require("helmet");
+const cors = require("cors");
 const User = require("./models/User");
 const Place = require("./models/Place");
 const bcrypt = require("bcryptjs");
@@ -33,18 +32,17 @@ cloudinary.config({
 
 app.use(express.json());
 // app.use(fileUpload({ useTempFiles: true }));
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:5173", "https://vacay-app.onrender.com"],
+  })
+);
 app.use(cookieParser());
 // app.use(express.static(path.resolve(__dirname, "./client/build")));
 app.use(express.static(path.resolve(__dirname, "./client/dist")));
-app.use(helmet());
+// app.use(helmet());
 // app.use("/uploads", express.static(path.resolve(__dirname + "/uploads")));
-
-// app.use(
-//   cors({
-//     credentials: true,
-//     origin: ["http://localhost:5173", "https://vacay-app.onrender.com"],
-//   })
-// );
 
 // https://vacay-app.onrender.com/
 // app.get("*", (req, res) => {
