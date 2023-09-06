@@ -33,12 +33,14 @@ cloudinary.config({
 app.use(express.json());
 // app.use(fileUpload({ useTempFiles: true }));
 // "https://vacay-app.onrender.com"
-app.use(
-  cors({
-    // credentials: true,
-    origin: ["http://localhost:5173", "https://vacay-app.onrender.com"],
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: ["http://localhost:5173", "https://vacay-app.onrender.com"],
+//   })
+// );
+
 app.use(cookieParser());
 // app.use(express.static(path.resolve(__dirname, "./client/build")));
 app.use(express.static(path.resolve(__dirname, "./client/dist")));
