@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const cors = require("cors");
+// const cors = require("cors");
+const helmet = require("helmet");
 const User = require("./models/User");
 const Place = require("./models/Place");
 const bcrypt = require("bcryptjs");
@@ -35,13 +36,16 @@ app.use(express.json());
 app.use(cookieParser());
 // app.use(express.static(path.resolve(__dirname, "./client/build")));
 app.use(express.static(path.resolve(__dirname, "./client/dist")));
+app.use(helmet());
 // app.use("/uploads", express.static(path.resolve(__dirname + "/uploads")));
-app.use(
-  cors({
-    credentials: true,
-    origin: ["http://localhost:5173", "https://vacay-app.onrender.com"],
-  })
-);
+
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: ["http://localhost:5173", "https://vacay-app.onrender.com"],
+//   })
+// );
+
 // https://vacay-app.onrender.com/
 // app.get("*", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
