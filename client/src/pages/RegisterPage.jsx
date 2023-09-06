@@ -10,11 +10,15 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/register", {
-        name,
-        email,
-        password,
-      });
+      await axios.post(
+        "/register",
+        {
+          name,
+          email,
+          password,
+        },
+        { headers: { "Access-Control-Allow-Origin": "*" } }
+      );
       alert("Registration successful. Now you can log in");
     } catch (error) {
       alert("Registration failed. Please try again later !");

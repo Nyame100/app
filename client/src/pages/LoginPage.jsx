@@ -12,7 +12,15 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/login", { email, password });
+      const { data } = await axios.post(
+        "/login",
+        { email, password },
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      );
       setUser(data);
       setRedirect(true);
     } catch (error) {

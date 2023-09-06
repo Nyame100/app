@@ -12,9 +12,15 @@ const PlacePage = () => {
     if (!id) {
       return;
     }
-    axios.get(`/places/${id}`).then((response) => {
-      setPlace(response.data);
-    });
+    axios
+      .get(`/places/${id}`, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+      .then((response) => {
+        setPlace(response.data);
+      });
   }, [id]);
 
   if (!place) return "";

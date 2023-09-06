@@ -6,9 +6,11 @@ import axios from "axios";
 const PlacesPage = () => {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
-    axios.get("/user-places").then(({ data }) => {
-      setPlaces(data);
-    });
+    axios
+      .get("/user-places", { headers: { "Access-Control-Allow-Origin": "*" } })
+      .then(({ data }) => {
+        setPlaces(data);
+      });
   }, []);
   return (
     <div>
